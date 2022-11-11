@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+    //create a function with 2 input 
+    // find the difference between these 2 length 
+    // whichever string is greater split that and keep the addition string in new variable 
+    // and remaining one in different variable now both sstring will be of same length
+
+    //run a loop and add these 2 str varibles + carry as one if sum is greater than 9 and
+    // keep sum's last digit
+    //if its not greater than nine initialize carry as 0
+    // add the carry with the leftover string then add that with sum
+    let length = 0;
+    let lengd = 0;
+    let realstrA = '';
+    let Fstr = '';
+    let leftstrA = '';
+    let realstrB = '';
+    let leftstrB = '';
+    let sum = 0;
+    let carry = 0;
+
+    function myfun(strA, strB) {
+        if (strA.length > strB.length) {
+            length = strA.length
+            lengd = strA.length - strB.length
+            realstrA = strA.slice(lengd, strA.length);
+            leftstrA = strA.slice(0, lengd)
+            realstrB = strB
+        }
+        else {
+            length = strB.length
+            lengd = strB.length - strA.length
+            realstrB = strB.slice(lengd, strB.length);
+            leftstrB = strB.slice(0, lengd)
+            realstrA = strA
+        }
+        for (let i = length - lengd - 1; i >= 0; i--) {
+            sum = (realstrA[i] * 1) + (realstrB[i] * 1) + carry
+            //  console.log((realstrA[i]*1),(realstrB[i]*1),carry,i)
+            sum = sum + ''
+            if (sum > 9) {
+                carry = 1
+                sum = sum[1]
+            }
+            else {
+                carry = 0
+            }
+            Fstr = sum + Fstr
+        }
+        console.log(((leftstrA * 1) + (leftstrB * 1) + carry) + Fstr)
+    }
+
+
+
+
+    // myfun('45','455')
+    myfun("9333852702227987", "85731737104263")
+
+// console.log(obj)
+
+</script>
+
+</html>
